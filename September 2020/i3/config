@@ -1,0 +1,149 @@
+# i3-gaps Config File
+
+### Basic Setup
+# set mod key
+set $mod Mod1
+# set fonts
+font pango:monospace 8
+# sets borders for windows
+for_window [class=".*"] border pixel 5
+# sets gap between windows
+gaps inner 4
+gaps outer 2
+# smart gaps and borders
+smart_gaps on
+smart_borders on
+
+### Startup Apps
+# autorandr (determines xrandr monitor setting)
+exec autorandr --change
+# polybar
+exec --no-startup-id $HOME/.config/polybar/launch.sh
+# feh (background)
+exec feh --bg-scale /home/dylan/.config/i3/background.jpg
+# udiskie (automount)
+exec udiskie
+# picom (transparency)
+exec picom --conf /home/dylan/.config/picom/picom.conf
+# dunst (notifications)
+exec dunst
+# redshift
+exec redshift
+# key speed and rate
+exec xset r rate 275 60
+
+# pactl (adjusting audio with i3)
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+### Keys
+
+# Mouse + $mod to drag floating windows
+floating_modifier $mod
+
+# terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill
+bindsym $mod+Shift+r kill
+
+# rofi (menu)
+bindsym $mod+d exec rofi -show run
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split horiziontal
+bindsym $mod+b split h
+
+# split vertical
+bindsym $mod+v split v
+
+# fullscreen
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+y layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# sets workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+q workspace number $ws5
+bindsym $mod+w workspace number $ws6
+bindsym $mod+e workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+q move container to workspace number $ws5
+bindsym $mod+Shift+w move container to workspace number $ws6
+bindsym $mod+Shift+e move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+z restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resizing windows
+mode "resize" {
+        set $resize 10px or 10ppt
+
+        # resize with vim keys
+        bindsym h resize shrink width $resize
+        bindsym j resize grow height $resize
+        bindsym k resize shrink height $resize
+        bindsym l resize grow width $resize
+
+        # escape resize mode
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+g mode "resize"
+
+# screenshots
+bindsym --release $mod+a exec "scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f && rm $f'"
+bindsym --release $mod+Shift+a exec "scrot -s ~/Media/Screenshots/'%Y-%m-%d %T'.png"

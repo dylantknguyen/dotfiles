@@ -1,0 +1,58 @@
+# General
+alias la='ls -lAFh'
+
+# Pacman / Yay
+alias update='yay -Syu'
+alias install='yay -S $*'
+alias search='yay -Ss $*'
+alias info='yay -Si $*'
+alias remove='yay -Rs $*'
+alias unused='yay -Qdt'
+
+# Git
+gitpush() {
+    git commit -m "$*"
+    git push
+    git pull
+}
+
+alias gp=gitpush
+alias gs='git status'
+alias gc='git clone' $1
+alias ga='git add' $*
+
+# Brightness
+changebrightness() {
+    while [[ "$1" =~ ^- && ! "$1" == "--" ]]; 
+        do case $1 in
+            -s | --screen )
+                if [[ $2 == "inc" ]] ; then
+                    xbacklight -inc $3
+                elif [[ $2 == "dec" ]] ; then
+                    xbacklight -dec $3
+                elif [[ $2 == "set" ]] ; then
+                    xbacklight -set $3 
+                fi
+                ;;
+            -k | --keyboard )
+                if [[ $2 == "inc" ]] ; then
+                    xbacklight -ctrl tpacpi::kbd_backlight -inc $3
+                elif [[ $2 == "dec" ]] ; then
+                    xbacklight -ctrl tpacpi::kbd_backlight -dec $3
+                elif [[ $2 == "set" ]] ; then
+                    xbacklight -ctrl tpacpi::kbd_backlight -set $3
+                fi
+                ;;
+    esac; shift; done
+}
+
+alias bright=changebrightness
+
+# SSH
+alias kssh='kitty +kitten ssh' $*
+
+# Spotify
+alias spotify-noads='LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify'
+
+# Virtualenv
+alias makevenv="mkvirtualenv -p /usr/bin/python3" $1
