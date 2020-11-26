@@ -16,10 +16,18 @@ gitpush() {
     git pull
 }
 
+gitadd() {
+    if [ !$1 ]; then
+        git add --all
+    else
+        git add $*
+    fi
+}
 alias gp=gitpush
 alias gs='git status'
 alias gc='git clone' $1
-alias ga='git add' $*
+alias gcm='git commit -m' $*
+alias ga=gitadd
 
 # Brightness
 changebrightness() {

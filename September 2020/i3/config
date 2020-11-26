@@ -24,7 +24,7 @@ exec feh --bg-scale /home/dylan/.config/i3/background.jpg
 # udiskie (automount)
 exec udiskie
 # picom (transparency)
-exec picom --conf /home/dylan/.config/picom/picom.conf
+exec picom --conf /home/dylan/.config/picom/picom.conf --experimental-backend
 # dunst (notifications)
 exec dunst
 # redshift

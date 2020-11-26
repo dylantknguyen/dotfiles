@@ -22,6 +22,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mcchrish/nnn.vim'
+Plug 'lervag/vimtex'
 call plug#end()
 
 """ Themes """
@@ -29,7 +30,7 @@ call plug#end()
 """ Keybinds """
 let mapleader = ","
 
-nnoremap <C-p> :GFiles<CR>
+nnoremap <C-p> :Files<CR>
 map <Esc><Esc> :w<CR>
 
 let g:nnn#set_default_mappings = 0
@@ -49,3 +50,7 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 
 command! -nargs=* W w
+
+""" Vimtex """
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
