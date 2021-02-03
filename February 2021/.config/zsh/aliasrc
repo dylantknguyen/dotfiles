@@ -1,0 +1,82 @@
+# General
+alias la='ls -lAFh'
+alias mkd='mkdir -p -- $1 && cd $1'
+
+# Pacman / Yay
+alias update='yay -Syu'
+alias install='yay -S $*'
+alias search='yay -Ss $*'
+alias info='yay -Si $*'
+alias remove='yay -Rs $*'
+alias unused='yay -Qdt'
+
+# Git
+gitpush() {
+    git commit -m "$*"
+    git pull
+    git push
+}
+
+gitadd() {
+    if [ -z "$1" ]; then
+        git add --all
+    else
+        git add $*
+    fi
+}
+
+gitlog() {
+    if [ -z "$1" ]; then
+        git --no-pager log -15 --format=format:"%Cblue %h %Creset %C(auto, yellow) %s %Creset<%aN> (%ar)" --no-merges
+    elif [ $1 = "n" ]; then
+        git log
+    else
+        git log $*
+    fi
+}
+
+alias gp=gitpush
+alias gs='git status'
+alias gc='git clone' $1
+alias gcm='git commit -m' $*
+alias ga=gitadd
+alias gl=gitlog
+
+# Brightness
+changebrightness() {
+    while [[ "$1" =~ ^- && ! "$1" == "--" ]]; 
+        do case $1 in
+            -s | --screen )
+                if [[ $2 == "inc" ]] ; then
+                    xbacklight -inc $3
+                elif [[ $2 == "dec" ]] ; then
+                    xbacklight -dec $3
+                elif [[ $2 == "set" ]] ; then
+                    xbacklight -set $3 
+                fi
+                ;;
+            -k | --keyboard )
+                if [[ $2 == "inc" ]] ; then
+                    xbacklight -ctrl tpacpi::kbd_backlight -inc $3
+                elif [[ $2 == "dec" ]] ; then
+                    xbacklight -ctrl tpacpi::kbd_backlight -dec $3
+                elif [[ $2 == "set" ]] ; then
+                    xbacklight -ctrl tpacpi::kbd_backlight -set $3
+                fi
+                ;;
+    esac; shift; done
+}
+
+alias bright=changebrightness
+
+# SSH
+alias kssh='kitty +kitten ssh' $*
+
+# Spotify
+alias spotify-noads='LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify'
+
+# Virtualenv
+alias mkvenv="mkvirtualenv -p /usr/bin/python3" $1
+
+# Random
+# find . -name '*.pdf' -exec sh -c 'pdftotext "{}" - | grep --with-filename --label="{}" --color ""' \;

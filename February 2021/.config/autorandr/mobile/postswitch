@@ -1,0 +1,4 @@
+#!/bin/zsh
+nmcli radio wifi on
+sh $HOME/.config/polybar/launch.sh & disown
+feh --bg-scale /home/dylan/.config/i3/background.jpg
