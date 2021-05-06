@@ -19,9 +19,9 @@
 
 ## Screenshots
 
-[Images/dunst.png]
-[Images/lock.png]
-[Images/neofetch.png]
-[Images/vim.png]
-[Images/music.png]
-[Images/mail.png]
+![Desktop and Dunst](Images/dunst.png)
+![Lock Screen](Images/lock.png)
+![Neofetch](Images/neofetch.png)
+![Vim](Images/vim.png)
+![Music](Images/music.png)
+![Mail Client](Images/mail.png)
