@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/dylan/swag/nginx/proxy-confs'
+let g:netrw_dirhist_4='/home/dylan/Downloads/Forms/Product/website/.git'
+let g:netrw_dirhist_3='/home/dylan/Code/robotics/docs/source/_static'
+let g:netrw_dirhist_2='/home/dylan/Code/cross-seed/build'
+let g:netrw_dirhist_1='/sys/class/backlight/intel_backlight'
+let g:netrw_dirhist_0='/home/dylan/Code/mirrormirror'
+let g:netrw_dirhist_9='/home/dylan/.lyrics'
+let g:netrw_dirhist_8='/home/dylan/.config/ncmpcpp'
+let g:netrw_dirhist_7='/home/dylan/.config/mpd/playlists/Playlist'
+let g:netrw_dirhist_6='/home/dylan/Code/kara-tutoring/website/pages'

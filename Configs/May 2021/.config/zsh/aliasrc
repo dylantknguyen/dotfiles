@@ -1,0 +1,75 @@
+# General
+alias la='ls -lAFh'
+alias mkd='mkdir -p -- $1 && cd $1'
+
+# System
+## Brightness
+alias bright='~/Scripts/brightness.sh $*'
+
+## MX Master
+alias mxm='~/Scripts/mx-master.sh'
+
+# Commands
+## Pacman / Yay
+alias update='yay -Syu'
+alias install='yay -S $*'
+alias search='yay -Ss $*'
+alias info='yay -Si $*'
+alias remove='yay -Rns $*'
+alias listunused='yay -Qdt'
+alias cleanunused='~/Scripts/cleanunused.sh'
+alias cleancache='yay -Sc'
+alias cleancacheall='yay -Scc'
+
+
+## Git
+gitpush() {
+    git commit -m "$*"
+    git pull
+    git push
+}
+
+gitadd() {
+    if [ -z "$1" ]; then
+        git add --all
+    else
+        git add $*
+    fi
+}
+
+gitlog() {
+    if [ -z "$1" ]; then
+        git --no-pager log -15 --format=format:"%Cblue %h %Creset %C(auto, yellow) %s %Creset<%aN> (%ar)" --no-merges
+    elif [ $1 = "n" ]; then
+        git log
+    else
+        git log $*
+    fi
+}
+
+alias gp=gitpush
+alias gs='git status'
+alias gc='git clone' $1
+alias gcm='git commit -m' $*
+alias ga=gitadd
+alias gl=gitlog
+
+## SSH
+alias kssh='kitty +kitten ssh' $*
+alias kkssh='TERM="xterm-256color" ssh $*'
+
+## Vim
+alias vim="nvim"
+
+## Mutt
+alias mutt="neomutt"
+alias syncmutt="mbsync -a && neomutt"
+
+## Spotify
+alias spotify-noads='LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify'
+
+## Virtualenv
+alias mkvenv="mkvirtualenv -p /usr/bin/python3" $1
+
+# Random
+# find . -name '*.pdf' -exec sh -c 'pdftotext "{}" - | grep --with-filename --label="{}" --color ""' \;

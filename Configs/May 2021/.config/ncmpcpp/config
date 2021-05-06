@@ -1,0 +1,22 @@
+# Notification
+execute_on_song_change = notify-send "Now Playing" "$(mpc --host='/home/dylan/.config/mpd/socket' --format '%title% \n%artist% - %album%' current)"
+
+# MPD Settings
+mpd_host = "~/.config/mpd/socket"
+mpd_music_dir = "/run/media/dylan/samba/dylan/Music/"
+
+# Visualizer
+visualizer_in_stereo = "yes"
+visualizer_data_source= "/tmp/mpd.fifo"
+visualizer_output_name = "Visualizer"
+visualizer_type = "wave_filled"
+visualizer_look = "●▮"
+visualizer_color = "blue"
+
+# Lyrics
+follow_now_playing_lyrics = "yes"
+
+# Defaults
+user_interface = "alternative"
+display_bitrate = "yes"
+alternative_header_second_line_format = "%a - %b"

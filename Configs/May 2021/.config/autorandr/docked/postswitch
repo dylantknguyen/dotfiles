@@ -1,0 +1,3 @@
+#!/bin/zsh
+sh $HOME/.config/polybar/launch.sh & disown
+exec feh --bg-scale /home/dylan/.config/i3/background.jpg

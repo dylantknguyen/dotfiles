@@ -1,0 +1,30 @@
+set editor=`echo \$EDITOR`
+source "gpg -dq [ENCRYPTED_PASS_FILE] |" 
+
+set folder = "~/Mail/email/"
+# set folder = "imaps://email@gmail.com@imap.gmail.com:993/"
+set smtp_url = "smtp://email@gmail.com@smtp.gmail.com:587/"
+
+set imap_pass = $my_pass
+set smtp_pass = $my_pass
+set realname = "Name"
+set from = "email@gmail.com"
+
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail" 
+set trash = "+[Gmail]/Trash"
+
+mailboxes =INBOX
+
+set send_charset="utf-8"
+set sort = reverse-date
+set ssl_starttls = yes
+set ssl_force_tls = yes
+set imap_keepalive = 300
+set mail_check = 120
+
+macro pager \cb <pipe-entry>'urlscan -c --run "firefox {}"'<enter> 'Follow links with urlscan'
+
+source $HOME/.config/mutt/colors.rc
+source $HOME/.config/mutt/gpg.rc

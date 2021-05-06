@@ -1,0 +1,19 @@
+IMAPStore personal-remote
+Host imap.gmail.com
+Port 993
+User email@gmail.com
+PassCmd "gpg -dq [PATH TO GPG-ENCRYPTED FILE]"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore personal-local
+Path ~/Mail/email/
+Inbox ~/Mail/email/INBOX/
+Subfolders Verbatim
+
+Channel personal
+Far :personal-remote:
+Near :personal-local:
+Create Both
+Patterns *
+SyncState *
