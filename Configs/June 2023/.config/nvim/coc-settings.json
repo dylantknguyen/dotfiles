@@ -1,0 +1,28 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "javascript",
+    "html",
+    "css",
+    "json",
+    "markdown",
+    "java",
+    "c"
+  ],
+  "html.autoClosingTags": true,
+  "python.sortImports.path": "/usr/bin/isort",
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/usr/bin/black",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "/usr/bin/flake8",
+  "python.linting.flake8Args": ["--max-complexity=10"],
+  "python.linting.mypyEnabled": false,
+  "python.linting.mypyPath": "/usr/bin/mypy",
+  "python.linting.mypyArgs": ["--strict"],
+  "java.jdt.ls.home": "/home/dylan/.config/nvim/language-servers/jdtls",
+  "java.format.enabled": true,
+  "java.format.settings.profile": "GoogleStyle",
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
+  "snippets.ultisnips.pythonPrompt": false
+}

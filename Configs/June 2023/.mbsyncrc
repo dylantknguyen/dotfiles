@@ -1,0 +1,20 @@
+IMAPStore personal-remote
+Host imap.gmail.com
+Port 993
+User dylannguyen1000@gmail.com
+PassCmd "gpg -dq $HOME/.gnupg/mbsync.gpg"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore personal-local
+Path ~/Mail/dylannguyen1000/
+Inbox ~/Mail/dylannguyen1000/INBOX/
+Subfolders Verbatim
+
+Channel personal
+Far :personal-remote:
+Near :personal-local:
+Create Both
+Expunge None
+Patterns *
+SyncState *

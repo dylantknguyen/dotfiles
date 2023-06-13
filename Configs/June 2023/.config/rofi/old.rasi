@@ -1,0 +1,15 @@
+configuration {
+	modi: "drun,run,window";
+	font: "BlexMono Nerd Font 12";
+	disable-history: false;
+	sidebar-mode: true;
+	tokenize: true;
+	m: "-5";
+	window-format: "{w} {c}";
+  theme: "main";
+  show-icons: false;
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+}

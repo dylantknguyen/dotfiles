@@ -1,0 +1,12 @@
+{
+	"$schema": "https://joplinapp.org/schema/settings.json",
+	"locale": "en_US",
+	"api.token": "97e6a993df5efd91b6770b745d8fa0fc84a377655959c41649b44cddfdc4453fc29f1d104dcf23427d886833c39f0ea4a4d8f8253eb3772d1168814c6d8f8f47",
+	"markdown.plugin.softbreaks": false,
+	"markdown.plugin.typographer": false,
+	"sync.5.path": "https://192.168.1.140:7000/remote.php/webdav/Joplin",
+	"sync.5.username": "dylan",
+	"sync.target": 5,
+	"net.ignoreTlsErrors": true,
+	"sync.interval": 3600
+}

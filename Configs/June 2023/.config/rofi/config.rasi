@@ -1,0 +1,11 @@
+configuration {
+  display-run: "";
+  display-drun: "";
+  display-window: "";
+  drun-display-format: "{name}";
+  font: "BlexMono Nerd Font 12";
+  modi: "drun,run,window";
+  show-icons: false;
+}
+
+@theme "main"

@@ -7,7 +7,7 @@ if [[ $(systemctl is-active bluetooth) != 'active' ]]; then
 
   sleep 0.5
 
-  echo -e 'power on\nconnect \t \nquit' | bluetoothctl
+  echo -e 'power on\nconnect CE:64:EF:88:1C:0D \nquit' | bluetoothctl
 
   sleep 0.5
 

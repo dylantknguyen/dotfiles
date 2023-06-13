@@ -1,4 +1,4 @@
-#/bin/zsh
+#!/bin/zsh
 
 if [[ "$1" =~ ^- && ! "$1" == "--" && -n $3 ]];
   then case $1 in

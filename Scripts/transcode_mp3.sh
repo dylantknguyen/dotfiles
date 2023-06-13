@@ -1,4 +1,4 @@
-#/bin/zsh
+#!/bin/zsh
 
 transcode_options=('320' 'V0' 'V2')
 SOURCE_DIR=${1///}
@@ -14,9 +14,9 @@ check_transcode_options() {
     if [[ "$1" == "$option" ]]; then
       return 0
     fi
-    echo "Invalid transcode option"
-    exit 1
   done
+  echo "Invalid transcode option"
+  exit 1
 }
 
 convert() {

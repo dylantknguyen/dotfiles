@@ -1,0 +1,5 @@
+#!/bin/zsh
+sh $HOME/.config/polybar/launch.sh & disown
+feh --bg-scale /home/dylan/.config/i3/background-ultrawide.jpg
+xset s 1200
+xset -dpms

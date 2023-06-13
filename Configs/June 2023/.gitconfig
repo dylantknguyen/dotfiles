@@ -1,0 +1,22 @@
+[user]
+	name = Dylan Nguyen
+[credential]
+	helper = store
+[pull]
+	rebase = true
+[advice]
+	addIgnoredFile = false
+[core]
+	pager = less -FRX
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[gpg]
+	program = gpg2
